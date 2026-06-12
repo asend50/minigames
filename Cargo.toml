@@ -1,0 +1,14 @@
+[package]
+name = "minigames"
+version = "0.1.0"
+edition = "2024"
+
+
+[dependencies]
+macroquad = "0.4.15"
+rayon = { version = "1.7", optional = true }
+
+[features]
+scale = []
+default = ["native"]
+native = ["rayon"]
