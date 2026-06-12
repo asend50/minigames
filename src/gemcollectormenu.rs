@@ -30,7 +30,7 @@ let backgroundcolor = Color::from_hex(0xAD81C7);
     ).await;
     img_gemcollector.set_preload(tm.get_preload("assets/gemcollectortitle.png").unwrap());
 
-    let mut lbl_help = Label::new("Collect each gem and\ndeposit them in the minecart", 350.0, 535.0, 40);
+    let mut lbl_help = Label::new("Collect each gem and deposit them\n in the minecart to win the game", 300.0, 535.0, 40);
     lbl_help.with_colors(textcolor, Some(bordercolor));
     lbl_help.with_round(10.0);
 

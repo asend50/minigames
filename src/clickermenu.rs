@@ -30,7 +30,7 @@ let backgroundcolor = Color::from_hex(0xD1B78E);
     ).await;
     img_chickenclicker.set_preload(tm.get_preload("assets/chickenclickertitle.png").unwrap());
 
-    let mut lbl_help = Label::new("Click on the chicken 100\ntimes to collect the egg.", 375.0, 535.0, 40);
+    let mut lbl_help = Label::new("Click on the chicken 100\n times to win the game.", 375.0, 535.0, 40);
     lbl_help.with_colors(textcolor, Some(bordercolor));
     lbl_help.with_round(10.0);
 

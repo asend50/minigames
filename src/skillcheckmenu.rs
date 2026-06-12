@@ -30,7 +30,7 @@ let backgroundcolor = Color::from_hex(0xFFA8E9);
     ).await;
     img_skillcheck.set_preload(tm.get_preload("assets/skillchecktitle.png").unwrap());
 
-    let mut lbl_help = Label::new("Press your spacebar when the\nbar is over the green box.\n Reach 25 points to win", 375.0, 535.0, 35);
+    let mut lbl_help = Label::new("Press your spacebar when the\n bar is over the green box.\n   Reach 25 points to win", 350.0, 500.0, 40);
     lbl_help.with_colors(textcolor, Some(bordercolor));
     lbl_help.with_round(10.0);
 
