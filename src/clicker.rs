@@ -47,14 +47,14 @@ pub async fn run(tm: TextureManager, chickenclickerscore: i32, gemcollectorscore
         lbl_chickenpoints.draw();
 
         if btn_arrowbutton.click() {
-            return ("menu".to_string(), tm, chickenclickerscorevalue, gemcollectorscore);
+            return ("clickermenu".to_string(), tm, chickenclickerscorevalue, gemcollectorscore);
         }
 
         if btn_chicken.click() {
             chickenpoints += 1;
             lbl_chickenpoints.set_text(chickenpoints.to_string());
 
-            if chickenpoints == 10 {
+            if chickenpoints == 100 {
                 chickenclickerscorevalue += 1;
                 return ("menu".to_string(), tm, chickenclickerscorevalue, gemcollectorscore);
         }

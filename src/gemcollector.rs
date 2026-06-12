@@ -119,7 +119,7 @@ pub async fn run(tm: TextureManager, chickenclickerscore: i32, gemcollectorscore
         cave.draw();
 
         if btn_arrowbutton.click() {
-            return ("menu".to_string(), tm, chickenclickerscore, gemcollectorscorevalue);
+            return ("gemcollectormenu".to_string(), tm, chickenclickerscore, gemcollectorscorevalue);
         }
 // player movement
 

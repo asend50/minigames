@@ -11,6 +11,8 @@ mod clicker;
 mod clickermenu;
 mod gemcollector;
 mod gemcollectormenu;
+mod skillcheck;
+mod skillcheckmenu;
 use crate::modules::preload_image::TextureManager;
 use crate::modules::preload_image::LoadingScreenOptions; // If you want to customize the loading screen
 
@@ -42,7 +44,7 @@ async fn main() {
        // Use default values for other options
        ..Default::default()
    };
-   tm.preload_with_loading_screen(&["assets/desktopbackground.png", "assets/filefolder.png", "assets/filefolderhover.png", "assets/pixelchicken.png", "assets/pixelchickenhover.png", "assets/pixelfarm.png", "assets/pixelegg.png", "assets/pixelarrow.png", "assets/pixelarrowhover.png", "assets/stevespriteright.png", "assets/stevespriteleft.png", "assets/cave.png", "assets/diamond.png", "assets/emerald.png", "assets/gold.png", "assets/amethyst.png", "assets/minecart.png"], Some(loading_options)).await;
+   tm.preload_with_loading_screen(&["assets/desktopbackground.png", "assets/filefolder.png", "assets/filefolderhover.png", "assets/pixelchicken.png", "assets/pixelchickenhover.png", "assets/pixelfarm.png", "assets/pixelegg.png", "assets/pixelarrow.png", "assets/pixelarrowhover.png", "assets/stevespriteright.png", "assets/stevespriteleft.png", "assets/cave.png", "assets/diamond.png", "assets/emerald.png", "assets/gold.png", "assets/amethyst.png", "assets/minecart.png", "assets/chickenclickertitle.png", "assets/gemcollectortitle.png", "assets/skillchecktitle.png"], Some(loading_options)).await;
 
     let mut last_switch = get_time() - 0.02;
 
@@ -58,6 +60,8 @@ async fn main() {
                 "clickermenu" => clickermenu::run(tm, chickenclickerscore, gemcollectorscore).await,
                 "gemcollector" => gemcollector::run(tm, chickenclickerscore, gemcollectorscore).await,
                 "gemcollectormenu" => gemcollectormenu::run(tm, chickenclickerscore, gemcollectorscore).await,
+                "skillcheck" => skillcheck::run(tm, chickenclickerscore, gemcollectorscore).await,
+                "skillcheckmenu" => skillcheckmenu::run(tm, chickenclickerscore, gemcollectorscore).await,
                 _ => break,
             };
             last_switch = get_time();

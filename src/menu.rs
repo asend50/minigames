@@ -11,9 +11,11 @@ pub async fn run(tm: TextureManager, chickenclickerscore: i32, gemcollectorscore
 
     let mut lbl_description = Label::new("Beat each minigame to collect each item.\nCollect every item in order to beat the game.", 220.0, 300.0, 35);
 
-    let mut lbl_chickenclicker = Label::new("Chicken Clicker", 100.0, 850.0, 35);
+    let mut lbl_chickenclicker = Label::new("Chicken Clicker", 90.0, 815.0, 30);
 
-    let mut lbl_gemcollector = Label::new("Gem Collector", 425.0, 850.0, 35);
+    let mut lbl_gemcollector = Label::new("Gem Collector", 350.0, 815.0, 30);
+
+    let mut lbl_skillcheck = Label::new("Skill Check", 620.0, 815.0, 30);
 
     let mut img_background = StillImage::new(
         "",
@@ -28,19 +30,37 @@ pub async fn run(tm: TextureManager, chickenclickerscore: i32, gemcollectorscore
     
 
     let mut btn_filefolder1 = ImageButton::new(
-        150.0,  // width
+        125.0,  // width
         650.0,  // height
-        150.0,  // x position
-        150.0,   // y position
+        125.0,  // x position
+        125.0,   // y position
         "assets/filefolder.png",        // normal state image
         "assets/filefolderhover.png",  // hover state image
     ).await;
 
     let mut btn_filefolder2 = ImageButton::new(
-        450.0,  // width
+        375.0,  // width
         650.0,  // height
-        150.0,  // x position
-        150.0,   // y position
+        125.0,  // x position
+        125.0,   // y position
+        "assets/filefolder.png",        // normal state image
+        "assets/filefolderhover.png",  // hover state image
+    ).await;
+
+    let mut btn_filefolder3 = ImageButton::new(
+        625.0,  // width
+        650.0,  // height
+        125.0,  // x position
+        125.0,   // y position
+        "assets/filefolder.png",        // normal state image
+        "assets/filefolderhover.png",  // hover state image
+    ).await;
+
+    let mut btn_filefolder4 = ImageButton::new(
+        875.0,  // width
+        650.0,  // height
+        125.0,  // x position
+        125.0,   // y position
         "assets/filefolder.png",        // normal state image
         "assets/filefolderhover.png",  // hover state image
     ).await;
@@ -74,12 +94,21 @@ pub async fn run(tm: TextureManager, chickenclickerscore: i32, gemcollectorscore
         lbl_description.draw();
         lbl_chickenclicker.draw();
         lbl_gemcollector.draw();
+        lbl_skillcheck.draw();
 
         if btn_filefolder1.click() {
             return ("clickermenu".to_string(), tm, chickenclickerscore, gemcollectorscore);
         }
 
         if btn_filefolder2.click() {
+            return ("gemcollectormenu".to_string(), tm, chickenclickerscore, gemcollectorscore);
+        }
+
+        if btn_filefolder3.click() {
+            return ("skillcheckmenu".to_string(), tm, chickenclickerscore, gemcollectorscore);
+        }
+
+        if btn_filefolder4.click() {
             return ("gemcollectormenu".to_string(), tm, chickenclickerscore, gemcollectorscore);
         }
 
