@@ -3,7 +3,7 @@ use crate::modules::still_image::StillImage;
 use crate::modules::label::Label;
 use crate::modules::preload_image::TextureManager;
 use crate::modules::image_button::ImageButton;
-pub async fn run(tm: TextureManager, chickenclickerscore: i32, gemcollectorscore: i32) -> (String, TextureManager, i32, i32) {
+pub async fn run(tm: TextureManager, chickenclickerscore: i32, gemcollectorscore: i32, skillcheckpoints: i32) -> (String, TextureManager, i32, i32, i32) {
 
     let mut chickenclickerscorevalue = chickenclickerscore;
 
@@ -47,7 +47,7 @@ pub async fn run(tm: TextureManager, chickenclickerscore: i32, gemcollectorscore
         lbl_chickenpoints.draw();
 
         if btn_arrowbutton.click() {
-            return ("clickermenu".to_string(), tm, chickenclickerscorevalue, gemcollectorscore);
+            return ("clickermenu".to_string(), tm, chickenclickerscorevalue, gemcollectorscore, skillcheckpoints);
         }
 
         if btn_chicken.click() {
@@ -56,13 +56,13 @@ pub async fn run(tm: TextureManager, chickenclickerscore: i32, gemcollectorscore
 
             if chickenpoints == 100 {
                 chickenclickerscorevalue += 1;
-                return ("menu".to_string(), tm, chickenclickerscorevalue, gemcollectorscore);
+                return ("menu".to_string(), tm, chickenclickerscorevalue, gemcollectorscore, skillcheckpoints);
         }
             
         }
 
         if is_key_pressed(KeyCode::Space) {
-            return ("menu".to_string(), tm, chickenclickerscorevalue, gemcollectorscore);
+            return ("menu".to_string(), tm, chickenclickerscorevalue, gemcollectorscore, skillcheckpoints);
         }
         next_frame().await;
     }

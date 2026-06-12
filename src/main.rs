@@ -44,24 +44,26 @@ async fn main() {
        // Use default values for other options
        ..Default::default()
    };
-   tm.preload_with_loading_screen(&["assets/desktopbackground.png", "assets/filefolder.png", "assets/filefolderhover.png", "assets/pixelchicken.png", "assets/pixelchickenhover.png", "assets/pixelfarm.png", "assets/pixelegg.png", "assets/pixelarrow.png", "assets/pixelarrowhover.png", "assets/stevespriteright.png", "assets/stevespriteleft.png", "assets/cave.png", "assets/diamond.png", "assets/emerald.png", "assets/gold.png", "assets/amethyst.png", "assets/minecart.png", "assets/chickenclickertitle.png", "assets/gemcollectortitle.png", "assets/skillchecktitle.png"], Some(loading_options)).await;
+   tm.preload_with_loading_screen(&["assets/desktopbackground.png", "assets/filefolder.png", "assets/filefolderhover.png", "assets/pixelchicken.png", "assets/pixelchickenhover.png", "assets/pixelfarm.png", "assets/pixelegg.png", "assets/pixelarrow.png", "assets/pixelarrowhover.png", "assets/stevespriteright.png", "assets/stevespriteleft.png", "assets/cave.png", "assets/diamond.png", "assets/emerald.png", "assets/gold.png", "assets/amethyst.png", "assets/minecart.png", "assets/chickenclickertitle.png", "assets/gemcollectortitle.png", "assets/skillchecktitle.png", "assets/bar.png", "assets/greenbar.png", "assets/blackbar.png", "assets/redbackground.png", "assets/gear.png"], Some(loading_options)).await;
 
     let mut last_switch = get_time() - 0.02;
 
     let mut chickenclickerscore = 0;
 
     let mut gemcollectorscore = 0;
+
+    let mut skillcheckpoints = 0;
     
     loop {
         if get_time() - last_switch > 0.01 {
-            (current_screen, tm, chickenclickerscore, gemcollectorscore) = match current_screen.as_str() {
-                "menu" => menu::run(tm, chickenclickerscore, gemcollectorscore).await,
-                "clicker" => clicker::run(tm, chickenclickerscore, gemcollectorscore).await,
-                "clickermenu" => clickermenu::run(tm, chickenclickerscore, gemcollectorscore).await,
-                "gemcollector" => gemcollector::run(tm, chickenclickerscore, gemcollectorscore).await,
-                "gemcollectormenu" => gemcollectormenu::run(tm, chickenclickerscore, gemcollectorscore).await,
-                "skillcheck" => skillcheck::run(tm, chickenclickerscore, gemcollectorscore).await,
-                "skillcheckmenu" => skillcheckmenu::run(tm, chickenclickerscore, gemcollectorscore).await,
+            (current_screen, tm, chickenclickerscore, gemcollectorscore, skillcheckpoints) = match current_screen.as_str() {
+                "menu" => menu::run(tm, chickenclickerscore, gemcollectorscore, skillcheckpoints).await,
+                "clicker" => clicker::run(tm, chickenclickerscore, gemcollectorscore, skillcheckpoints).await,
+                "clickermenu" => clickermenu::run(tm, chickenclickerscore, gemcollectorscore, skillcheckpoints).await,
+                "gemcollector" => gemcollector::run(tm, chickenclickerscore, gemcollectorscore, skillcheckpoints).await,
+                "gemcollectormenu" => gemcollectormenu::run(tm, chickenclickerscore, gemcollectorscore, skillcheckpoints).await,
+                "skillcheck" => skillcheck::run(tm, chickenclickerscore, gemcollectorscore, skillcheckpoints).await,
+                "skillcheckmenu" => skillcheckmenu::run(tm, chickenclickerscore, gemcollectorscore, skillcheckpoints).await,
                 _ => break,
             };
             last_switch = get_time();

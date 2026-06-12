@@ -6,7 +6,7 @@ use crate::modules::collision::check_collision;
 use macroquad::input::KeyCode;
 
 
-pub async fn run(tm: TextureManager, chickenclickerscore: i32, gemcollectorscore: i32) -> (String, TextureManager, i32, i32) {
+pub async fn run(tm: TextureManager, chickenclickerscore: i32, gemcollectorscore: i32, skillcheckpoints: i32) -> (String, TextureManager, i32, i32, i32) {
 
     let mut gemcollectorscorevalue = gemcollectorscore;
 
@@ -119,7 +119,7 @@ pub async fn run(tm: TextureManager, chickenclickerscore: i32, gemcollectorscore
         cave.draw();
 
         if btn_arrowbutton.click() {
-            return ("gemcollectormenu".to_string(), tm, chickenclickerscore, gemcollectorscorevalue);
+            return ("gemcollectormenu".to_string(), tm, chickenclickerscore, gemcollectorscorevalue, skillcheckpoints);
         }
 // player movement
 
@@ -256,7 +256,7 @@ pub async fn run(tm: TextureManager, chickenclickerscore: i32, gemcollectorscore
 
     if diamond.get_x() == 320.0 && diamond.get_y() == 200.0 && gold.get_x() == 350.0 && gold.get_y() == 200.0 && emerald.get_x() == 380.0 && emerald.get_y() == 200.0 && amethyst.get_x() == 410.0 && amethyst.get_y() == 200.0 {
     gemcollectorscorevalue += 1;
-    return ("menu".to_string(), tm, chickenclickerscore, gemcollectorscorevalue);
+    return ("menu".to_string(), tm, chickenclickerscore, gemcollectorscorevalue, skillcheckpoints);
     }
 
         steve.draw();

@@ -4,7 +4,7 @@ use crate::modules::label::Label;
 use crate::modules::image_button::ImageButton;
 use crate::modules::still_image::StillImage;
 
-pub async fn run(tm: TextureManager, chickenclickerscore: i32, gemcollectorscore: i32) -> (String, TextureManager, i32, i32) {
+pub async fn run(tm: TextureManager, chickenclickerscore: i32, gemcollectorscore: i32, skillcheckpoints: i32) -> (String, TextureManager, i32, i32, i32) {
 
 let textcolor = Color::from_hex(0x20062E);
 let bordercolor = Color::from_hex(0x6F2D8A);
@@ -42,11 +42,11 @@ let backgroundcolor = Color::from_hex(0xAD81C7);
         clear_background(backgroundcolor);
 
         if is_key_pressed(KeyCode::Space) {
-            return ("gemcollector".to_string(), tm, chickenclickerscore, gemcollectorscore);
+            return ("gemcollector".to_string(), tm, chickenclickerscore, gemcollectorscore, skillcheckpoints);
         }
 
         if btn_arrowbutton.click() {
-            return ("menu".to_string(), tm, chickenclickerscore, gemcollectorscore);
+            return ("menu".to_string(), tm, chickenclickerscore, gemcollectorscore, skillcheckpoints);
         }
 
 

@@ -4,7 +4,7 @@ use crate::modules::label::Label;
 use crate::modules::image_button::ImageButton;
 use crate::modules::still_image::StillImage;
 
-pub async fn run(tm: TextureManager, chickenclickerscore: i32, gemcollectorscore: i32) -> (String, TextureManager, i32, i32) {
+pub async fn run(tm: TextureManager, chickenclickerscore: i32, gemcollectorscore: i32, skillcheckpoints: i32) -> (String, TextureManager, i32, i32, i32) {
 
 let textcolor = Color::from_hex(0x4D1641);
 let bordercolor = Color::from_hex(0xC959AB);
@@ -30,7 +30,7 @@ let backgroundcolor = Color::from_hex(0xFFA8E9);
     ).await;
     img_skillcheck.set_preload(tm.get_preload("assets/skillchecktitle.png").unwrap());
 
-    let mut lbl_help = Label::new("Press your spacebar when the\nbar is over the green box.", 350.0, 535.0, 40);
+    let mut lbl_help = Label::new("Press your spacebar when the\nbar is over the green box.\n Reach 25 points to win", 375.0, 535.0, 35);
     lbl_help.with_colors(textcolor, Some(bordercolor));
     lbl_help.with_round(10.0);
 
@@ -41,11 +41,11 @@ let backgroundcolor = Color::from_hex(0xFFA8E9);
         clear_background(backgroundcolor);
 
         if is_key_pressed(KeyCode::Space) {
-            return ("skillcheck".to_string(), tm, chickenclickerscore, gemcollectorscore);
+            return ("skillcheck".to_string(), tm, chickenclickerscore, gemcollectorscore, skillcheckpoints);
         }
 
         if btn_arrowbutton.click() {
-            return ("menu".to_string(), tm, chickenclickerscore, gemcollectorscore);
+            return ("menu".to_string(), tm, chickenclickerscore, gemcollectorscore, skillcheckpoints);
         }
     
 
